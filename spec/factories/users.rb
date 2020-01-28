@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
-    email { "MyString" }
-    username { "MyString" }
+    email { 'MyString' }
+    username { 'MyString' }
     is_admin { false }
   end
 end
