@@ -6,6 +6,7 @@ FactoryBot.define do
     author { 'Anais Nin' }
     release_date { '2020-01-01' }
     description { 'This is the journal of Anais Nin' }
+    category { 'auto-biography' }
     section_id { create(:section).id }
   end
 end
