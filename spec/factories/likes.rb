@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :comment do
-    comment_text { 'Cette oeuvre m\'a bouleversée' }
+  factory :like do
     product { create(:product) }
     user { create(:user) }
   end
