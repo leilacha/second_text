@@ -9,6 +9,9 @@ class ProductsContainer extends Component {
             products: []
         }
     }
+      sortDescending = (array) => {
+        array.sort((a, b) => a.likes_count - b.likes_count).reverse()
+      }
     componentDidMount() {
         axios.get('v1/products.json')
         .then(response => {
@@ -21,7 +24,8 @@ class ProductsContainer extends Component {
     }
     render() {
             return (
-                <table className="products-container">
+                <table
+                  className="products-container">
                   <thead>
                       <tr>
                         <th>Title</th>
@@ -30,7 +34,7 @@ class ProductsContainer extends Component {
                       </tr>
                   </thead>
                   <tbody>
-                    {this.state.products.map( product => {
+                    {this.state.products.sort((a, b) => a.likes_count - b.likes_count).reverse().map( product => {
                         return (<Product product={product} key={product.id} />)
                     })}
                   </tbody>

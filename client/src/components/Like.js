@@ -7,10 +7,13 @@ class Like extends Component {
     constructor(props){
         super(props)
         this.state = {
-            liked: false
+            liked: false,
+            likes_count: this.props.product.likes_count
         }
     }
+
   handleLike = value => () => {
+    if (!this.state.liked) {
         axios.post('/v1/likes', {
                  user_id: 1,
                  product_id: value
@@ -18,10 +21,14 @@ class Like extends Component {
         .then(response => {
             console.log(response)
             this.setState({
-            liked: true
+            liked: true,
+            likes_count: this.state.likes_count + 1
             })
         })
         .catch(error => console.log(error))
+    } else {
+       console.log('find user like if exist and delete it')
+      }
   };
 
     render() {
@@ -30,7 +37,7 @@ class Like extends Component {
               className={this.state.liked ? 'liked' : 'unliked'}
               onClick={this.handleLike(this.props.product.id)}
               >
-              {`Likes ${this.props.product.likes_count}`}
+              {`Likes ${this.state.likes_count}`}
               </button>
             )
         }
