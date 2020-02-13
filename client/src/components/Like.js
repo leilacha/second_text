@@ -15,7 +15,7 @@ class Like extends Component {
   handleLike = value => () => {
     if (!this.state.liked) {
         axios.post('/v1/likes', {
-                 user_id: 1,
+                 user_id: 12    ,
                  product_id: value
                })
         .then(response => {

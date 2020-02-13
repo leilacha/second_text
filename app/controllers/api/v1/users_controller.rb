@@ -5,6 +5,11 @@ module Api
     # controller for User
     class UsersController < ActionController::API
       before_action :set_user, only: %i[show update destroy]
+      before_action :authenticate_user
+
+      def current
+        render json: current_user.as_json(only: %i(id email))
+      end
 
       def index
         @users = User.all

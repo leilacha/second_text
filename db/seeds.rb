@@ -19,6 +19,8 @@ end
 10.times do
   User.create(
     email: Faker::Internet.email,
-    username: Faker::Internet.username
+    username: Faker::Internet.username,
+    password: 'blabloubli',
+    password_confirmation: 'blabloubli'
   )
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       resources :products
       resources :sections
       resources :users
+      post 'user/token' => 'user_token#create'
+      get 'users/current' => 'users#current'
       resources :contributions
       resources :comments
       resources :likes
